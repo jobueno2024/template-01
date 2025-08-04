@@ -10,7 +10,7 @@ resource "google_composer_environment" "batch_environment" {
       
       # 環境変数の設定
       env_variables = {
-        ENVIRONMENT = "production"
+        ENVIRONMENT = "development"
       }
     }
 
