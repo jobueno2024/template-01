@@ -18,22 +18,22 @@ resource "google_composer_environment" "batch_environment" {
           service_account = google_service_account.composer_service_account.email
         }
         # workloads_configの例（必要に応じて調整）
-        # workloads_config {
-        #   scheduler {
-        #     cpu = 2
-        #     memory_gb = 7.5
-        #   }
-        #   web_server {
-        #     cpu = 2
-        #     memory_gb = 7.5
-        #   }
-        #   worker {
-        #     cpu = 2
-        #     memory_gb = 7.5
-        #     min_count = 1
-        #     max_count = 3
-        #   }
-        # }
+        workloads_config {
+          scheduler {
+            cpu = 2
+            memory_gb = 7.5
+          }
+          web_server {
+            cpu = 2
+            memory_gb = 7.5
+          }
+          worker {
+            cpu = 2
+            memory_gb = 7.5
+            min_count = 1
+            max_count = 3
+          }
+        }
   }
 }
 
