@@ -6,7 +6,7 @@ resource "google_composer_environment" "batch_environment" {
 
   config {
     software_config {
-      image_version = "composer-2.5.3-airflow-2.5.3"
+          image_version = "composer-3-airflow-2.10.5"
       
       # 環境変数の設定
       env_variables = {
@@ -14,12 +14,26 @@ resource "google_composer_environment" "batch_environment" {
       }
     }
 
-    node_config {
-      service_account = google_service_account.composer_service_account.email
-      
-      # Composerで使用するマシンタイプの設定
-      machine_type = "n1-standard-2"
-    }
+        node_config {
+          service_account = google_service_account.composer_service_account.email
+        }
+        # workloads_configの例（必要に応じて調整）
+        # workloads_config {
+        #   scheduler {
+        #     cpu = 2
+        #     memory_gb = 7.5
+        #   }
+        #   web_server {
+        #     cpu = 2
+        #     memory_gb = 7.5
+        #   }
+        #   worker {
+        #     cpu = 2
+        #     memory_gb = 7.5
+        #     min_count = 1
+        #     max_count = 3
+        #   }
+        # }
   }
 }
 
